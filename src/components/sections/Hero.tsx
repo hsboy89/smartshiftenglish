@@ -34,7 +34,7 @@ export function Hero() {
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
                         고급 AI 모델을 활용한 <br />문제 변형,
-                        원장님은  <br /><span className={styles.highlight}>성과</span>에만 집중하세요.
+                        <span className={styles.highlight}>성과</span>에만  <br />집중하세요.
                     </motion.h1>
 
                     <motion.p
