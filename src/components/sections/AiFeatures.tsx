@@ -51,6 +51,8 @@ export function AiFeatures() {
     const [selectedTypes, setSelectedTypes] = useState<string[]>(["빈칸 추론", "문장 삽입", "글의 순서", "주제/제목"]);
     const [pdfTemplate, setPdfTemplate] = useState<"standard" | "exam">("exam");
     const [isDownloading, setIsDownloading] = useState(false);
+    const [trialCount, setTrialCount] = useState(0);
+    const [showUpgradeModal, setShowUpgradeModal] = useState(false);
     const pdfRef = useRef<HTMLDivElement>(null);
 
     const handleOcrSim = () => {
@@ -65,6 +67,13 @@ export function AiFeatures() {
 
     const handleGenerate = async () => {
         if (!inputText) return;
+
+        // Trial Limit Check
+        if (trialCount >= 1) {
+            setShowUpgradeModal(true);
+            return;
+        }
+
         setIsLoading(true);
         setResults([]);
         setSelectedIds([]);
@@ -84,6 +93,7 @@ export function AiFeatures() {
                     selectedTypes.some(t => r.type.includes(t))
                 );
                 setResults(filtered.length > 0 ? filtered : data.data);
+                setTrialCount(prev => prev + 1);
             }
         } catch (error) {
             console.error("Generation failed", error);
@@ -321,6 +331,50 @@ export function AiFeatures() {
                         </AnimatePresence>
                     </div>
                 </div>
+
+                {/* Upgrade Upsell Modal */}
+                <AnimatePresence>
+                    {showUpgradeModal && (
+                        <div className={styles.modalOverlay}>
+                            <motion.div
+                                className={styles.modalContent}
+                                initial={{ scale: 0.9, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.9, opacity: 0 }}
+                                style={{ maxWidth: '450px', padding: '2.5rem', textAlign: 'center' }}
+                            >
+                                <div className="flex justify-center mb-4">
+                                    <div className="bg-blue-100 p-4 rounded-full text-primary">
+                                        <Zap size={32} />
+                                    </div>
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3">무료 체험 횟수 초과</h3>
+                                <p className="text-muted-foreground mb-6 leading-relaxed">
+                                    체험판은 1회만 이용 가능합니다.<br />
+                                    <strong>무제한 변형 문제 생성</strong>과 <strong>프리미엄 PDF 기능</strong>을 지금 바로 이용해 보세요!
+                                </p>
+                                <div className="flex flex-col gap-3">
+                                    <Button
+                                        fullWidth
+                                        onClick={() => {
+                                            setShowUpgradeModal(false);
+                                            window.location.hash = "#pricing";
+                                        }}
+                                    >
+                                        프리미엄 플랜 상세보기
+                                    </Button>
+                                    <Button
+                                        variant="ghost"
+                                        fullWidth
+                                        onClick={() => setShowUpgradeModal(false)}
+                                    >
+                                        나중에 할게요
+                                    </Button>
+                                </div>
+                            </motion.div>
+                        </div>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* Floating Action Bar */}
