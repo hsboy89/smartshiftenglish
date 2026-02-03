@@ -1,0 +1,211 @@
+.section {
+    padding: 6rem 0;
+    background-color: var(--muted);
+}
+
+.grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+}
+
+.imageWrapper {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.badge {
+    display: inline-flex;
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0.75rem;
+    color: var(--primary);
+    width: fit-content;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.headline {
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--foreground);
+    word-break: keep-all;
+}
+
+.featureList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.featureItem {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.checkIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    padding: 0.25rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.featureText h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--foreground);
+}
+
+.featureText p {
+    color: var(--muted-foreground);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Solution Demo Styles */
+.demoContainer {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    grid-template-rows: 1fr 1.2fr;
+    gap: 1rem;
+    background: #f1f5f9;
+}
+
+.demoCard {
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.cardTitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.studentChart {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.chartRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.chartLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.chartBarBg {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.chartBarFill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.mindmapCard {
+    grid-row: span 2;
+}
+
+.mindmapCanvas {
+    flex: 1;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.mindNode {
+    padding: 0.4rem 0.8rem;
+    background: white;
+    border: 1px solid var(--primary);
+    border-radius: 2rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.miniPdf {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem;
+    font-size: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.miniPdfHeader {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.2rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.miniPdfCols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem;
+    flex: 1;
+}
+
+.miniPdfQuestion {
+    background: #f8fafc;
+    height: 100%;
+}

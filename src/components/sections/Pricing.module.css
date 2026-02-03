@@ -1,0 +1,155 @@
+.section {
+    padding: 6rem 0;
+    background-color: var(--background);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 4rem;
+}
+
+.headline {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    word-break: keep-all;
+    line-height: 1.2;
+}
+
+.subheadline {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+    word-break: keep-all;
+    line-height: 1.6;
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Pricing Card */
+.card {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: white;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card.popular {
+    border: 2px solid var(--primary);
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1), 0 10px 10px -5px rgba(37, 99, 235, 0.04);
+    position: relative;
+}
+
+.popularBadge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+}
+
+.planName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.priceUnit {
+    font-size: 1rem;
+    color: var(--muted-foreground);
+    font-weight: 400;
+}
+
+.featureList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.featureItem {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--foreground);
+    align-items: center;
+}
+
+.check {
+    color: var(--primary);
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.xMark {
+    color: var(--input);
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.disabled {
+    color: var(--muted-foreground);
+    text-decoration: line-through;
+}
+
+/* Specific Plan Colors */
+.businessCard {
+    background: #0f172a;
+    color: white;
+    border: none;
+}
+
+.businessCard .planName {
+    color: #94a3b8;
+}
+
+.businessCard .price {
+    color: white;
+}
+
+.businessCard .priceUnit {
+    color: #64748b;
+}
+
+.businessCard .featureItem {
+    color: #e2e8f0;
+}
+
+.businessCard .check {
+    color: #38bdf8;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

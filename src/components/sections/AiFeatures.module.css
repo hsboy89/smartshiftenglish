@@ -1,0 +1,535 @@
+.section {
+    padding: 6rem 0;
+    background-color: var(--background);
+    text-align: center;
+}
+
+.headline {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--foreground);
+    word-break: keep-all;
+    line-height: 1.3;
+}
+
+.subheadline {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    margin-bottom: 4rem;
+    word-break: keep-all;
+    line-height: 1.6;
+}
+
+.interface {
+    display: grid;
+    gap: 2rem;
+    text-align: left;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.ocrButton {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.ocrButton:hover {
+    background: var(--secondary);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.textarea {
+    width: 100%;
+    height: 200px;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    resize: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: var(--muted);
+    color: var(--foreground);
+    margin-bottom: 1.5rem;
+    transition: all 0.2s;
+}
+
+.textarea:focus {
+    outline: 2px solid var(--primary);
+    border-color: transparent;
+    background-color: white;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.select {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.emptyState {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted-foreground);
+    min-height: 400px;
+    border: 2px dashed var(--border);
+    border-radius: 1rem;
+    gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .interface {
+        grid-template-columns: 1.2fr 1.8fr;
+    }
+}
+
+/* Results List */
+.resultsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 800px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.resultsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+.resultsList::-webkit-scrollbar-track {
+    background: var(--muted);
+}
+
+.resultsList::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+}
+
+.resultCard {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.2s;
+}
+
+.resultCard:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.resultCardSelected {
+    border-color: var(--primary);
+    background-color: #f0f7ff;
+}
+
+.selectionBox {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 5;
+}
+
+.checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.resultType {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: var(--secondary);
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.25rem;
+}
+
+.question {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    color: var(--foreground);
+    white-space: pre-wrap;
+    padding: 1rem;
+    background: var(--muted);
+    border-radius: 0.5rem;
+}
+
+.optionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.option {
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    background: white;
+}
+
+.answerBox {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.5rem;
+    color: #166534;
+}
+
+.answerTitle {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.explanation {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #15803d;
+}
+
+/* Floating Action Bar */
+.actionBar {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+    color: white;
+}
+
+.selectionCount {
+    font-weight: 600;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 1.5rem;
+}
+
+.actionButtons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* OCR Simulation Overlay */
+.ocrOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.5rem;
+}
+
+.scanner {
+    width: 200px;
+    height: 150px;
+    border: 2px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.scanner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    box-shadow: 0 0 10px 2px var(--primary);
+    animation: scan 1.5s linear infinite;
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modalContent {
+    background: white;
+    width: 95%;
+    max-width: 1000px;
+    max-height: 90vh;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalHeader {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pdfPreview {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    background: #f1f5f9;
+}
+
+.pdfPage {
+    background: white;
+    width: 100%;
+    min-height: 1200px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pdfAcademy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pdfLogo {
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.pdfQuestionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    line-height: 1.5;
+}
+
+.pdfQuestionItem {
+    padding-bottom: 1rem;
+    border-bottom: 1px dotted var(--border);
+}
+
+.pdfQuestionText {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.pdfOptionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    padding-left: 0.5rem;
+}
+
+.spinner {
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Question Type Selector */
+.typeSelector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: flex-start;
+}
+
+.typeChip {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+    color: var(--muted-foreground);
+}
+
+.typeChipActive {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Template Switcher in Modal */
+.templateSwitcher {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--border);
+}
+
+.templateBtn {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: #f8fafc;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.templateBtnActive {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* 2-Column Mock Exam Layout */
+.pdfPageCols {
+    column-count: 2;
+    column-gap: 3rem;
+    column-rule: 1px solid #000;
+}
+
+.pdfQuestionItem {
+    break-inside: avoid;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dotted #ccc;
+}
+
+.pdfQuestionItem:last-child {
+    border-bottom: none;
+}
