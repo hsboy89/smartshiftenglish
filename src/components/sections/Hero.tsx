@@ -53,10 +53,14 @@ export function Hero() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.7 }}
                     >
-                        <Button size="lg">
-                            도입 상담 신청하기 <ArrowRight size={18} style={{ marginLeft: "0.5rem" }} />
-                        </Button>
-                        <Button variant="outline" size="lg">학원 전용 요금제</Button>
+                        <Link href="#pricing">
+                            <Button size="lg">
+                                도입 상담 신청하기 <ArrowRight size={18} style={{ marginLeft: "0.5rem" }} />
+                            </Button>
+                        </Link>
+                        <Link href="#pricing">
+                            <Button variant="outline" size="lg">학원 전용 요금제</Button>
+                        </Link>
                     </motion.div>
                 </motion.div>
 

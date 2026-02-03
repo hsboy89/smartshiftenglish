@@ -21,7 +21,9 @@ export function Header() {
 
                 <div className={styles.actions}>
                     <Button variant="ghost" size="sm">원장님 전용관</Button>
-                    <Button size="sm">프리미엄 무료 체험</Button>
+                    <Link href="#generator">
+                        <Button size="sm">프리미엄 무료 체험</Button>
+                    </Link>
                 </div>
             </div>
         </header>
